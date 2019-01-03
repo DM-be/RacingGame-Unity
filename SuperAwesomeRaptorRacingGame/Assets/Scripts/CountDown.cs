@@ -11,6 +11,7 @@ public class CountDown : MonoBehaviour
     public AudioSource GoAudio;
     public GameObject LapTimer;
     public GameObject CarControl;
+    public AudioSource LevelMusic;
 
 
 	void Start ()
@@ -42,5 +43,7 @@ public class CountDown : MonoBehaviour
         GoAudio.Play();
         LapTimer.SetActive(true);
         CarControl.SetActive(true);
+
+        LevelMusic.Play();
     }
 }
