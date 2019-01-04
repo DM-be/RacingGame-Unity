@@ -15,6 +15,10 @@ public class WelcomeMessageText : MonoBehaviour {
 
     private void Update()
     {
-        welcomeText.text = UserManager.Instance.User.firstName;
+        if (UserManager.Instance.User != null)
+        {
+         welcomeText.text = UserManager.Instance.User.firstName;
+        }
+        
     }
 }
