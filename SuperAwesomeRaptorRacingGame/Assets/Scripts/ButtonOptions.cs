@@ -20,6 +20,12 @@ public class ButtonOptions : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
+    public void Credits()
+    {
+        //TODO fill in scene
+        //SceneManager.LoadScene();
+    }
+
     //Below here are track selection buttons
     public void Track01()
     {
