@@ -16,6 +16,18 @@ public class LapComplete : MonoBehaviour {
 
     public GameObject LapCounter;
 
+    public GameObject RaceFinish;
+    public int AmountOfLaps = 2;
+
+    void Update()
+    {
+        Debug.unityLogger.Log(LapsDone);
+        if (LapsDone >= AmountOfLaps)
+        {
+            RaceFinish.SetActive(true);
+        }
+    }
+
     void OnTriggerEnter()
     {
         LapsDone += 1;
