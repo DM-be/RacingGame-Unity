@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 
 public class Login : MonoBehaviour
@@ -58,6 +60,7 @@ public class Login : MonoBehaviour
             UserManager.UserObject userObject = JsonUtility.FromJson<UserManager.UserObject>(userJSON);
             UserManager.Instance.User = userObject; // set main user variable in singleton class
             // navigate back to main
+            SceneManager.LoadScene(0);
 
         }
 
