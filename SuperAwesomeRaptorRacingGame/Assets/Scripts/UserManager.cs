@@ -4,16 +4,16 @@ public class UserManager : MonoBehaviour {
 
     public class UserObject
     {
-        public int Id { get; set; }
-        public string UserName { get; set; }
-        public string Firstname { get; set; }
-        public string LastName { get; set; }
-        public string Token { get; set; }
+        public int id;
+        public string username;
+        public string firstName;
+        public string lastName;
+        public string token;
     }
 
     public static UserManager Instance { get; private set; }
 
-    public UserObject User { get; set; }
+    public UserObject User;
 
     private void Awake()// called before start() --> get value of instance in other start()
     {
