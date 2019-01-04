@@ -7,23 +7,12 @@ using UnityEngine.UI;
 
 public class Login : MonoBehaviour
 {
-    // move classes to singleton class
+   
     public class LoginDTO {
         
         public string Username;
         public string Password;
     }
-
-    public class User {
-        public int Id;
-        public string UserName;
-        public string Firstname;
-        public string LastName;
-        public string Token;
-    }
-
-
-
 
     public InputField userNameField;
     public InputField passwordField;
@@ -35,7 +24,6 @@ public class Login : MonoBehaviour
         loginButton.onClick.AddListener(submitLogin);
     }
 
-    
     public void submitLogin()
     {
         string userName = userNameField.text;
@@ -62,14 +50,18 @@ public class Login : MonoBehaviour
         }
         else
         {
+            Debug.Log("succes");
             // check the message --> if no users exists message --> clear fields 
-
-
             // else parse user object from backend
             byte[] result = www.downloadHandler.data;
             string userJSON = System.Text.Encoding.Default.GetString(result);
-            User user = JsonUtility.FromJson<User>(userJSON);
-            // set main user variable in singleton class
+            Debug.Log(userJSON);
+            UserManager.UserObject userObject = JsonUtility.FromJson<UserManager.UserObject>(userJSON);
+            Debug.Log(userObject.Firstname);
+            UserManager.Instance.User = userObject; // set main user variable in singleton class
+
+            var user = UserManager.Instance.User;
+            Debug.Log(user.Firstname);
             // navigate back to main
 
         }
