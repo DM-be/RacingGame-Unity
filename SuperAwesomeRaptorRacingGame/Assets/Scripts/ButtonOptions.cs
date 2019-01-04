@@ -20,6 +20,19 @@ public class ButtonOptions : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
+    public void loadLoginScene() {
+
+        SceneManager.LoadScene(5);
+    }
+
+    public void loadRegisterScene() {
+        SceneManager.LoadScene(6);
+
+    }
+
+
+
+
     //Below here are track selection buttons
     public void Track01()
     {
