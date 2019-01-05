@@ -14,17 +14,22 @@ public class RaceFinish : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        this.GetComponent<BoxCollider>().enabled = false;
-        MyCar.SetActive(false);
-        CompleteTrigger.SetActive(false);
-        CarController.m_Topspeed = 0.0f;
-        MyCar.GetComponent<CarController>().enabled = false;
-        MyCar.GetComponent<CarUserControl>().enabled = false;
+        if (!ModeTime.isTimeMode)
+        {
 
-        MyCar.SetActive(true);
-        FinishCam.SetActive(true);
-        LevelMusic.SetActive(false);
-        ViewModes.SetActive(false);
+            this.GetComponent<BoxCollider>().enabled = false;
+            MyCar.SetActive(false);
+            CompleteTrigger.SetActive(false);
+            CarController.m_Topspeed = 0.0f;
+            MyCar.GetComponent<CarController>().enabled = false;
+            MyCar.GetComponent<CarUserControl>().enabled = false;
+
+            MyCar.SetActive(true);
+            FinishCam.SetActive(true);
+            LevelMusic.SetActive(false);
+            ViewModes.SetActive(false);
+        }
+ 
     }
 
 }
