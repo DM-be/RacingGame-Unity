@@ -7,6 +7,7 @@ public class CarChoise : MonoBehaviour
 
     public GameObject RedBody;
     public GameObject BlueBody;
+    public GameObject GreenBody;
     public int CarImport;
 
 	void Start ()
@@ -20,6 +21,9 @@ public class CarChoise : MonoBehaviour
                 break;
             case 1:
                 BlueBody.SetActive(true);
+                break;
+            case 2:
+                GreenBody.SetActive(true);
                 break;
 	    }
 	}
