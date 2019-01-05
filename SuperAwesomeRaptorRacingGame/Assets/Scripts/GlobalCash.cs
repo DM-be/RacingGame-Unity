@@ -12,8 +12,9 @@ public class GlobalCash : MonoBehaviour
     public GameObject CashDisplay;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+	    TotalCash = PlayerPrefs.GetInt("SavedCash");
 	}
 	
 	// Update is called once per frame
