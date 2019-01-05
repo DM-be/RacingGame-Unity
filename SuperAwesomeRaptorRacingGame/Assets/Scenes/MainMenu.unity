@@ -747,12 +747,8 @@ RectTransform:
   - {fileID: 1065701885}
   - {fileID: 1347395367}
   - {fileID: 598635913}
-<<<<<<< HEAD
-  - {fileID: 1968488385}
-=======
   - {fileID: 53332688}
   - {fileID: 586933116}
->>>>>>> 511ff944b47d5a8907b144f126000d48cf1db0c5
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1426,11 +1422,7 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1624575953}
   m_CullTransparentMesh: 0
-<<<<<<< HEAD
---- !u!1 &1968488384
-=======
 --- !u!1 &1726503337
->>>>>>> 511ff944b47d5a8907b144f126000d48cf1db0c5
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
