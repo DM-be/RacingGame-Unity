@@ -5,7 +5,7 @@ using UnityEngine;
 public class ModeSelect : MonoBehaviour
 {
     //TODO enum
-    public static int RaceMode = 0;  // 0 = Race, 1 = Score, 2 = Time
+    public static int RaceMode;  // 0 = Race, 1 = Score, 2 = Time
 
     public void ScoreMode()
     {
