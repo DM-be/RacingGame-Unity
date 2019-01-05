@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
+using UnityEngine.SceneManagement;
 
 public class RaceFinish : MonoBehaviour
 {
@@ -31,8 +32,17 @@ public class RaceFinish : MonoBehaviour
 
             GlobalCash.TotalCash += 100;
             PlayerPrefs.SetInt("SavedCash", GlobalCash.TotalCash);
+
+            StartCoroutine(ToMenu());
         }
  
+    }
+
+    IEnumerator ToMenu()
+    {
+        yield return new WaitForSeconds(2);
+        //TODO correct screen
+        SceneManager.LoadScene(1);
     }
 
 }
