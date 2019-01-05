@@ -14,7 +14,13 @@ public class CountDown : MonoBehaviour
     public AudioSource LevelMusic;
 
 
-	void Start ()
+
+    void Awake() {
+        
+    }
+
+
+    void Start ()
 	{
 	    StartCoroutine(CountStart());
 	}
@@ -41,6 +47,7 @@ public class CountDown : MonoBehaviour
         yield return new WaitForSeconds(1);
         CountDownObject.SetActive(false);
         GoAudio.Play();
+        LapTimeTest.Instance.StartStopwatch();
         LapTimer.SetActive(true);
         CarControl.SetActive(true);
 

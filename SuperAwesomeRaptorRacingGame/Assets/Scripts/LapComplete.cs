@@ -31,6 +31,9 @@ public class LapComplete : MonoBehaviour {
     void OnTriggerEnter()
     {
         LapsDone += 1;
+        LapTimeTest.Instance.ResetStopwatch();
+        // send best score in the reset 
+
 
         if (LapTimeManager.SecondCount <= 9)
         {
