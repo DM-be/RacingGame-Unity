@@ -28,6 +28,9 @@ public class RaceFinish : MonoBehaviour
             FinishCam.SetActive(true);
             LevelMusic.SetActive(false);
             ViewModes.SetActive(false);
+
+            GlobalCash.TotalCash += 100;
+            PlayerPrefs.SetInt("SavedCash", GlobalCash.TotalCash);
         }
  
     }
