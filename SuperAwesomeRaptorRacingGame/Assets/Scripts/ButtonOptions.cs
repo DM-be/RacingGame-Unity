@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ButtonOptions : MonoBehaviour {
 
-    public void PlayGame()
+    /*public void PlayGame()
     {
         SceneManager.LoadScene(2);
     }
-
-    public void SelectTrack()
+    */
+    public void PlayGame()
     {
         SceneManager.LoadScene(1);
     }
@@ -31,7 +31,11 @@ public class ButtonOptions : MonoBehaviour {
     }
 
 
-
+    public void Credits()
+    {
+        //TODO fill in scene
+        //SceneManager.LoadScene();
+    }
 
     //Below here are track selection buttons
     public void Track01()
