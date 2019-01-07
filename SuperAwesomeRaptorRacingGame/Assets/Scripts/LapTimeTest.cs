@@ -31,6 +31,7 @@ public class LapTimeTest : MonoBehaviour {
     }
 
     void Update () {
+        Debug.Log(UserManager.Instance.User.firstName);
         if (stopWatch.IsRunning)
         {
             newTime.text = FormatMilliSeconds(stopWatch.ElapsedMilliseconds);
