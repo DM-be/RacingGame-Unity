@@ -4,7 +4,7 @@ public class UserManager : MonoBehaviour {
 
     public class UserObject
     {
-        public int id;
+        public int userId;
         public string username;
         public string firstName;
         public string lastName;
