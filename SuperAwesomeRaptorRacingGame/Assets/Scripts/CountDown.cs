@@ -47,7 +47,7 @@ public class CountDown : MonoBehaviour
         yield return new WaitForSeconds(1);
         CountDownObject.SetActive(false);
         GoAudio.Play();
-        LapTimeTest.Instance.StartStopwatch();
+        LapTimeManager.Instance.StartStopwatch();
         CarControl.SetActive(true);
 
         LevelMusic.Play();

@@ -31,10 +31,10 @@ public class LapComplete : MonoBehaviour {
     void OnTriggerEnter()
     {
         LapsDone += 1;
-        LapTimeTest.Instance.ResetStopwatch();
-        // send best score in the reset 
+        UserManager.Instance.SendLapTime(LapTimeManager.Instance.GetStopWatchFormattedTime());
+        LapTimeManager.Instance.ResetStopwatch();
 
-        
+
 
         LapCounter.GetComponent<Text>().text = "" + LapsDone;
 

@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
-public class LapTimeTest : MonoBehaviour {
+public class LapTimeManager : MonoBehaviour {
 
     public Text newTime;
     public Stopwatch stopWatch;
 
-    public static LapTimeTest Instance { get; private set; }
+    public static LapTimeManager Instance { get; private set; }
 
 
     private void Awake()// called before start() --> get value of instance in other start()
@@ -31,7 +31,6 @@ public class LapTimeTest : MonoBehaviour {
     }
 
     void Update () {
-        Debug.Log(UserManager.Instance.User.firstName);
         if (stopWatch.IsRunning)
         {
             newTime.text = FormatMilliSeconds(stopWatch.ElapsedMilliseconds);
@@ -46,6 +45,10 @@ public class LapTimeTest : MonoBehaviour {
         stopWatch.Stop();
         stopWatch.Reset();
         stopWatch.Start();
+    }
+
+    public string GetStopWatchFormattedTime() {
+        return FormatMilliSeconds(stopWatch.ElapsedMilliseconds);
     }
 
     string FormatMilliSeconds(float elapsed)
