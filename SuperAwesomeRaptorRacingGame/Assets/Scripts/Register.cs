@@ -4,25 +4,26 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class Register : MonoBehaviour {
 
     public class RegisterDto
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string FirstName;
+        public string LastName;
+        public string Username;
+        public string Password;
     }
 
     public InputField LastNameField;
     public InputField FirstNameField;
     public InputField UserNameField;
     public InputField PasswordField;
-    public Button LoginButton;
+    public Button RegisterButton;
     private const string URL = "http://localhost:50518/api/users/register";
 
     void Start () {
-        LoginButton.onClick.AddListener(SubmitRegister);
+        RegisterButton.onClick.AddListener(SubmitRegister);
     }
 
 
@@ -42,12 +43,13 @@ public class Register : MonoBehaviour {
     public IEnumerator CallRegister(string Username, string Password, string FirstName, string LastName ) {
         RegisterDto registerDto = new RegisterDto
         {
-            Username = Username,
-            Password = Password,
             FirstName = FirstName,
-            LastName = LastName
+            LastName = LastName,
+            Password = Password,
+            Username = Username
         };
         string jsonString = JsonUtility.ToJson(registerDto);
+        Debug.Log(jsonString);
         UnityWebRequest www = UnityWebRequest.Put(URL, jsonString);
         www.method = "POST";
         www.SetRequestHeader("Content-Type", "application/json");
