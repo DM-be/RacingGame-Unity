@@ -48,7 +48,6 @@ public class CountDown : MonoBehaviour
         CountDownObject.SetActive(false);
         GoAudio.Play();
         LapTimeTest.Instance.StartStopwatch();
-        LapTimer.SetActive(true);
         CarControl.SetActive(true);
 
         LevelMusic.Play();
