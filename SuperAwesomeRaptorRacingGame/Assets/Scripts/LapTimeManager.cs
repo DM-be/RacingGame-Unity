@@ -6,7 +6,9 @@ using Debug = UnityEngine.Debug;
 
 public class LapTimeManager : MonoBehaviour {
 
-    public Text newTime;
+    public Text currentTime;
+    public Text topPersonalTime;
+    public Text topGlobalTime;
     public Stopwatch stopWatch;
 
     public static LapTimeManager Instance { get; private set; }
@@ -33,7 +35,7 @@ public class LapTimeManager : MonoBehaviour {
     void Update () {
         if (stopWatch.IsRunning)
         {
-            newTime.text = FormatTimeSpan(stopWatch.Elapsed);
+            currentTime.text = FormatTimeSpan(stopWatch.Elapsed);
         }
     }
 
@@ -54,6 +56,10 @@ public class LapTimeManager : MonoBehaviour {
 
     public string GetStopWatchFormattedTime() {
         return FormatTimeSpan(stopWatch.Elapsed);
+    }
+
+    public void SetTopPersonalTime() {
+   //     this.topPersonalTime = UserManager.Instance.User
     }
 
 }

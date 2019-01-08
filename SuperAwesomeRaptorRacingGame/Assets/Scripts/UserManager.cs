@@ -1,31 +1,42 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 public class UserManager : MonoBehaviour {
 
-    public class UserObject
+
+
+    // using camelcase here because of how the default mvc json is serialised
+    [System.Serializable]
+    public class UserDto
     {
         public int userId;
         public string username;
         public string firstName;
         public string lastName;
         public string token;
+        public List<UserScoreDto> scores = new List<UserScoreDto> { };
     }
-
+    [System.Serializable]
+    public class UserScoreDto {
+        public string trackName;
+        public string time;
+    }
+    [System.Serializable]
     public class ScoreDto {
-        public string Username;
-        public string FirstName;
-        public string LastName;
-        public string TrackName;
-        public string Time;
+        public string username;
+        public string firstName;
+        public string lastName;
+        public string trackName;
+        public string time;
     }
 
     public static UserManager Instance { get; private set; }
     private const string scorePostURL = "http://localhost:50518/api/scores";
 
-    public UserObject User;
+    public UserDto User;
 
     private void Awake()// called before start() --> get value of instance in other start()
     {
@@ -46,11 +57,11 @@ public class UserManager : MonoBehaviour {
     public IEnumerator CallSendScore(string Time) {
         ScoreDto scoreDto = new ScoreDto
         {
-            Username = User.username,
-            FirstName = User.firstName,
-            LastName = User.lastName,
-            TrackName = SceneManager.GetActiveScene().name,
-            Time = Time,
+            username = User.username,
+            firstName = User.firstName,
+            lastName = User.lastName,
+            trackName = SceneManager.GetActiveScene().name,
+            time = Time,
         };
         string jsonString = JsonUtility.ToJson(scoreDto);
         Debug.Log(jsonString);

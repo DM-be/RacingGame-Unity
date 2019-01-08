@@ -57,8 +57,9 @@ public class Login : MonoBehaviour
             // else parse user object from backend
             byte[] result = www.downloadHandler.data;
             string userJSON = System.Text.Encoding.Default.GetString(result);
-            UserManager.UserObject userObject = JsonUtility.FromJson<UserManager.UserObject>(userJSON);
-            UserManager.Instance.User = userObject; // set main user variable in singleton class
+            UserManager.UserDto userDto = JsonUtility.FromJson<UserManager.UserDto>(userJSON);
+            UserManager.Instance.User = userDto; // set main user variable in singleton class
+            Debug.Log(userDto.scores);
             // navigate back to main
             SceneManager.LoadScene(0);
 
