@@ -21,7 +21,7 @@ public class LapTimeManager : MonoBehaviour {
         }
         else
         {
-            Destroy(gameObject); // destroy duplicates of UserManager
+            Destroy(gameObject); // destroy duplicates of LapTimeManager
         }
     }
 
@@ -33,7 +33,7 @@ public class LapTimeManager : MonoBehaviour {
     void Update () {
         if (stopWatch.IsRunning)
         {
-            newTime.text = FormatMilliSeconds(stopWatch.ElapsedMilliseconds);
+            newTime.text = FormatTimeSpan(stopWatch.Elapsed);
         }
     }
 
@@ -47,16 +47,13 @@ public class LapTimeManager : MonoBehaviour {
         stopWatch.Start();
     }
 
-    public string GetStopWatchFormattedTime() {
-        return FormatMilliSeconds(stopWatch.ElapsedMilliseconds);
+    private string FormatTimeSpan(TimeSpan timeSpan)
+    {
+        return String.Format("{0:00}:{1:00}.{2:00}", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
     }
 
-    string FormatMilliSeconds(float elapsed)
-    {
-        int d = (int)(elapsed/1000 * 100.0f);
-        int minutes = d / (60 * 100);
-        int seconds = (d % (60 * 100)) / 100;
-        int hundredths = d % 100;
-        return String.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, hundredths);
+    public string GetStopWatchFormattedTime() {
+        return FormatTimeSpan(stopWatch.Elapsed);
     }
+
 }
