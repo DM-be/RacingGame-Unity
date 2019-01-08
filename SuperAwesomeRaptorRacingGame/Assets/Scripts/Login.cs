@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class Login : MonoBehaviour
 {
    
-    public class LoginDTO {
+    public class LoginDto {
         
         public string Username;
         public string Password;
@@ -38,10 +38,10 @@ public class Login : MonoBehaviour
 
     public IEnumerator CallLogin(string Username, string Password) {
 
-        LoginDTO loginDTO = new LoginDTO();
-        loginDTO.Username = Username;
-        loginDTO.Password = Password;
-        string jsonString = JsonUtility.ToJson(loginDTO);
+        LoginDto loginDto = new LoginDto();
+        loginDto.Username = Username;
+        loginDto.Password = Password;
+        string jsonString = JsonUtility.ToJson(loginDto);
         UnityWebRequest www = UnityWebRequest.Put(URL, jsonString);
         www.method = "POST"; // For some reason UnityWebRequest applies URL encoding to POST message payloads. URL encoding the payload is an ASP.NET webform thing. 
         // see https://forum.unity.com/threads/unitywebrequest-post-url-jsondata-sending-broken-json.414708/ for more info
@@ -59,7 +59,6 @@ public class Login : MonoBehaviour
             string userJSON = System.Text.Encoding.Default.GetString(result);
             UserManager.UserDto userDto = JsonUtility.FromJson<UserManager.UserDto>(userJSON);
             UserManager.Instance.User = userDto; // set main user variable in singleton class
-            Debug.Log(userDto.scores);
             // navigate back to main
             SceneManager.LoadScene(0);
 
