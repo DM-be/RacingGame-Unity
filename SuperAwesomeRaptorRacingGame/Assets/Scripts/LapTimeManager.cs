@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
@@ -32,14 +33,15 @@ public class LapTimeManager : MonoBehaviour {
         stopWatch = new Stopwatch();
     }
 
-    void Update () {
+    void Update() {
         if (stopWatch.IsRunning)
         {
             currentTime.text = FormatTimeSpan(stopWatch.Elapsed);
+            topPersonalTime.text = GetTopPersonalTime();
         }
     }
 
-    public void StartStopwatch() { 
+    public void StartStopwatch() {
         stopWatch.Start();
     }
 
@@ -58,8 +60,29 @@ public class LapTimeManager : MonoBehaviour {
         return FormatTimeSpan(stopWatch.Elapsed);
     }
 
-    public void SetTopPersonalTime() {
-   //     this.topPersonalTime = UserManager.Instance.User
+    public string GetTopPersonalTime() {
+        // top score is always first returned (ordered by backend)
+        if (UserManager.Instance.User.scores.Count > 0)
+        {
+            return UserManager.Instance.User.scores[0].time;
+        }
+        return "00:00:0000";
+        
     }
 
+    public void SetTopGlobalTime() {
+
+
+        // call from backend the top time of this scene
+    }
+
+
+    private void OrderPersonalTimes() {
+        UserManager.Instance.User.scores.Sort((a,b) => a.time.CompareTo(b.time));
+    }
+
+    public void AddLapToUserScores() {
+        UserManager.Instance.User.scores.Add(new UserManager.UserScoreDto { time = GetStopWatchFormattedTime(), trackName = SceneManager.GetActiveScene().name });
+        OrderPersonalTimes();
+    }
 }

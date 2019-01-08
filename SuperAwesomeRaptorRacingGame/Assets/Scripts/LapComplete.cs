@@ -32,7 +32,10 @@ public class LapComplete : MonoBehaviour {
     {
         LapsDone += 1;
         UserManager.Instance.SendLapTime(LapTimeManager.Instance.GetStopWatchFormattedTime());
+        LapTimeManager.Instance.AddLapToUserScores();
         LapTimeManager.Instance.ResetStopwatch();
+       
+
 
 
 
