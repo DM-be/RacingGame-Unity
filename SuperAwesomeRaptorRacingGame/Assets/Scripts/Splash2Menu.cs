@@ -13,7 +13,6 @@ public class Splash2Menu : MonoBehaviour {
     IEnumerator ToMenu()
     {
         yield return new WaitForSeconds(4);
-        //TODO correct screen
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 }

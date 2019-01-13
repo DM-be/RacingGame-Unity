@@ -60,7 +60,7 @@ public class Login : MonoBehaviour
             UserManager.UserDto userDto = JsonUtility.FromJson<UserManager.UserDto>(userJSON);
             UserManager.Instance.User = userDto; // set main user variable in singleton class
             // navigate back to main
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(4);
 
         }
 

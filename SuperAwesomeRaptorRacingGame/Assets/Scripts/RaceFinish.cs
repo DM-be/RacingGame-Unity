@@ -44,7 +44,7 @@ public class RaceFinish : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         //TODO correct screen
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
     }
 
 }

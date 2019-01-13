@@ -61,7 +61,7 @@ public class Register : MonoBehaviour {
         else
         {
             // navigate back to Login scene
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(2);
 
         }
 

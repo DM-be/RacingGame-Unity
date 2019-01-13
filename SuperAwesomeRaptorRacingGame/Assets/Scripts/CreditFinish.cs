@@ -13,6 +13,6 @@ public class CreditFinish : MonoBehaviour {
     IEnumerator CreditEnd()
     {
         yield return new WaitForSeconds(8);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
 }
