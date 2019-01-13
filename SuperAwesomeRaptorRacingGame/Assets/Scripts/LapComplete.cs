@@ -7,11 +7,6 @@ public class LapComplete : MonoBehaviour {
     public GameObject LapCompleteTrig;
     public GameObject HalfLapTrig;
 
-    public GameObject MinuteDisplay;
-    public GameObject SecondDisplay;
-    public GameObject MilliDisplay;
-
-    public GameObject LapTimeBox;
     public int LapsDone;
 
     public GameObject LapCounter;
@@ -34,10 +29,7 @@ public class LapComplete : MonoBehaviour {
         UserManager.Instance.SendLapTime(LapTimeManager.Instance.GetStopWatchFormattedTime());
         LapTimeManager.Instance.AddLapToUserScores();
         LapTimeManager.Instance.ResetStopwatch();
-       
-
-
-
+   
 
         LapCounter.GetComponent<Text>().text = "" + LapsDone;
 

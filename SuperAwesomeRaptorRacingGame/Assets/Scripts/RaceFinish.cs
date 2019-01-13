@@ -12,12 +12,14 @@ public class RaceFinish : MonoBehaviour
     public GameObject ViewModes;
     public GameObject LevelMusic;
     public GameObject CompleteTrigger;
+    public LapTimeManager LapTimeManager;
 
     void OnTriggerEnter()
     {
         if (!ModeTime.isTimeMode)
         {
-
+            LapTimeManager = LapTimeManager.Instance;
+            LapTimeManager.StopStopwatch();
             this.GetComponent<BoxCollider>().enabled = false;
             MyCar.SetActive(false);
             CompleteTrigger.SetActive(false);
