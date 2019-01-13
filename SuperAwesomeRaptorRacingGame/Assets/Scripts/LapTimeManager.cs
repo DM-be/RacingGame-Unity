@@ -1,53 +1,86 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
-public class LapTimeManager : MonoBehaviour
-{
-    public static int MinuteCount;
-    public static int SecondCount;
-    public static float MilliCount;
-    public static string MilliDisplay;
+public class LapTimeManager : MonoBehaviour {
 
-    public GameObject MinuteBox;
-    public GameObject SecondBox;
-    public GameObject MilliBox;
+    public Stopwatch stopWatch;
 
-	void Update ()
-	{
-	    MilliCount += Time.deltaTime * 10;
-	    MilliDisplay = MilliCount.ToString("F0");
-	    MilliBox.GetComponent<Text>().text = "" + MilliDisplay;
+    public static LapTimeManager Instance { get; private set; }
 
-	    if (MilliCount >= 10)
-	    {
-	        MilliCount = 0;
-	        SecondCount += 1;
-	    }
 
-	    if (SecondCount <= 9)
-	    {
-	        SecondBox.GetComponent<Text>().text = "0" + SecondCount + ".";
+    private void Awake()// called before start() --> get value of instance in other start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-	    else
-	    {
-	        SecondBox.GetComponent<Text>().text = "" + SecondCount + ".";
+        else
+        {
+            Destroy(gameObject); // destroy duplicates of LapTimeManager
         }
+    }
 
-	    if (SecondCount >= 60)
-	    {
-	        SecondCount = 0;
-	        MinuteCount += 1;
-	    }
+    private void Start()
+    {
+        stopWatch = new Stopwatch();
+    }
 
-	    if (MinuteCount <= 9)
-	    {
-	        MinuteBox.GetComponent<Text>().text = "0" + MinuteCount + ".";
-	    }
-	    else
-	    {
-	        MinuteBox.GetComponent<Text>().text = "" + MinuteCount + ".";
-	    }
+    void Update() {
+
+    }
+
+    public void StartStopwatch() {
+        stopWatch.Start();
+    }
+
+    public void StopStopwatch()
+    {
+        stopWatch.Stop();
+    }
+
+    public void ResetStopwatch() {
+        stopWatch.Stop();
+        stopWatch.Reset();
+        stopWatch.Start();
+    }
+
+    private string FormatTimeSpan(TimeSpan timeSpan)
+    {
+        return String.Format("{0:00}:{1:00}.{2:00}", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
+    }
+
+    public string GetStopWatchFormattedTime() {
+        return FormatTimeSpan(stopWatch.Elapsed);
+    }
+
+    public string GetTopPersonalTime() {
+        // top score is always first returned (ordered by backend)
+        if (UserManager.Instance.User.scores.Count > 0)
+        {
+            return UserManager.Instance.User.scores[0].time;
+        }
+        return "00:00:0000";
+        
+    }
+
+    public void SetTopGlobalTime() {
+
+
+        // call from backend the top time of this scene
+    }
+
+
+    private void OrderPersonalTimes() {
+        UserManager.Instance.User.scores.Sort((a,b) => a.time.CompareTo(b.time));
+    }
+
+    public void AddLapToUserScores() {
+        UserManager.Instance.User.scores.Add(new UserManager.UserScoreDto { time = GetStopWatchFormattedTime(), trackName = SceneManager.GetActiveScene().name });
+        OrderPersonalTimes();
     }
 }
