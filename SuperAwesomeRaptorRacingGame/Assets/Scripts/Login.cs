@@ -16,8 +16,13 @@ public class Login : MonoBehaviour
         public string Password;
     }
 
+    public class BadRequestMessage {
+        public string message;
+    }
+
     public InputField userNameField;
     public InputField passwordField;
+    public Text errorMessage;
     public Button loginButton;
     private const string URL = "http://localhost:50518/api/users/authenticate";
 
@@ -48,7 +53,10 @@ public class Login : MonoBehaviour
         www.SetRequestHeader("Content-Type", "application/json");
         yield return www.SendWebRequest();
         if (www.error != null) {
-            Debug.Log("error" + www.error);
+            byte[] result = www.downloadHandler.data;
+            string badRequestJSON = System.Text.Encoding.Default.GetString(result);
+            BadRequestMessage badRequestMessage = JsonUtility.FromJson<BadRequestMessage>(badRequestJSON);
+            errorMessage.text = badRequestMessage.message;
         }
         else
         {

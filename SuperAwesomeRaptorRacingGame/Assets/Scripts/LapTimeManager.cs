@@ -64,7 +64,7 @@ public class LapTimeManager : MonoBehaviour {
         {
             return UserManager.Instance.User.scores[0].time;
         }
-        return "00:00:0000";
+        return "00:00:00";
         
     }
 
