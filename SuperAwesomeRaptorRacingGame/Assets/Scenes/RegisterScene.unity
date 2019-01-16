@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40023565, g: 0.5631032, b: 0.6524463, a: 1}
+  m_IndirectSpecularColor: {r: 0.43834692, g: 0.6145987, b: 0.71121067, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -472,8 +472,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 404213274}
   m_TextComponent: {fileID: 1002404932}
   m_Placeholder: {fileID: 1646244211}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -860,6 +860,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c032074c5fa74b6499618bd59e3a3b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  User:
+    userId: 0
+    username: 
+    firstName: 
+    lastName: 
+    token: 
+    scores: []
 --- !u!4 &751182165
 Transform:
   m_ObjectHideFlags: 0
@@ -1099,13 +1106,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1213560682}
   m_TextComponent: {fileID: 1961574240}
   m_Placeholder: {fileID: 972106797}
-  m_ContentType: 0
+  m_ContentType: 6
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40044346, g: 0.5633817, b: 0.6527826, a: 1}
+  m_IndirectSpecularColor: {r: 0.43834692, g: 0.6145987, b: 0.71121067, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1028,13 +1028,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1213560682}
   m_TextComponent: {fileID: 1961574240}
   m_Placeholder: {fileID: 972106797}
-  m_ContentType: 0
+  m_ContentType: 6
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:

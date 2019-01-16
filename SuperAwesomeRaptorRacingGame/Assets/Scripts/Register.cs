@@ -14,12 +14,18 @@ public class Register : MonoBehaviour {
         public string Username;
         public string Password;
     }
+    public class BadRequestMessage
+    {
+        public string message;
+    }
 
     public InputField LastNameField;
     public InputField FirstNameField;
     public InputField UserNameField;
     public InputField PasswordField;
     public Button RegisterButton;
+    public Text ErrorMessage;
+
     private const string URL = "http://localhost:50518/api/users/register";
 
     void Start () {
@@ -56,16 +62,16 @@ public class Register : MonoBehaviour {
         yield return www.SendWebRequest();
         if (www.error != null)
         {
-            Debug.Log("error" + www.error);
+            byte[] result = www.downloadHandler.data;
+            string badRequestJSON = System.Text.Encoding.Default.GetString(result);
+            BadRequestMessage badRequestMessage = JsonUtility.FromJson<BadRequestMessage>(badRequestJSON);
+            ErrorMessage.text = badRequestMessage.message;
         }
         else
         {
             // navigate back to Login scene
             SceneManager.LoadScene(2);
-
         }
-
-
     }
 
 }
