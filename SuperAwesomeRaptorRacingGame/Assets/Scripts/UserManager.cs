@@ -67,7 +67,9 @@ public class UserManager : MonoBehaviour {
         Debug.Log(jsonString);
         UnityWebRequest www = UnityWebRequest.Put(scorePostURL, jsonString);
         www.method = "POST";
+
         www.SetRequestHeader("Content-Type", "application/json");
+        www.SetRequestHeader("Authorization", "Bearer " + User.token);
         yield return www.SendWebRequest();
         if (www.error != null)
         {

@@ -84,6 +84,7 @@ public class LapTimeManager : MonoBehaviour {
     public IEnumerator SendRequestAndUpdateGlobalTime() {
         var URL = "http://localhost:50518/api/scores/top/" + SceneManager.GetActiveScene().name;
         UnityWebRequest www = UnityWebRequest.Get(URL);
+        www.SetRequestHeader("Authorization", "Bearer " + UserManager.Instance.User.token);
         yield return www.SendWebRequest();
         if (www.error != null) {
         }
