@@ -22,6 +22,7 @@ public class LapTimeDisplay : MonoBehaviour {
 	    {
 	        currentTime.text = LapTimeManager.GetStopWatchFormattedTime();
 	        topPersonalTime.text = LapTimeManager.GetTopPersonalTime();
+            topGlobalTime.text = LapTimeManager.GetTopGlobalTime();
 	    }
     }
 }

@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class LapTimeManager : MonoBehaviour {
 
     public Stopwatch stopWatch;
 
     public static LapTimeManager Instance { get; private set; }
+    private string topGlobalTime;
 
 
     private void Awake()// called before start() --> get value of instance in other start()
@@ -28,10 +31,7 @@ public class LapTimeManager : MonoBehaviour {
     private void Start()
     {
         stopWatch = new Stopwatch();
-    }
-
-    void Update() {
-
+        UpdateTopGlobalTime();
     }
 
     public void StartStopwatch() {
@@ -68,10 +68,29 @@ public class LapTimeManager : MonoBehaviour {
         
     }
 
-    public void SetTopGlobalTime() {
+    public string GetTopGlobalTime() {
+        if (topGlobalTime == null)
+        {
+            return "00:00:00";
+        }
+        return topGlobalTime;
+    }
 
+    public void UpdateTopGlobalTime() {
+        StartCoroutine(SendRequestAndUpdateGlobalTime());
+    }
 
-        // call from backend the top time of this scene
+  
+    public IEnumerator SendRequestAndUpdateGlobalTime() {
+        var URL = "http://localhost:50518/api/scores/top/" + SceneManager.GetActiveScene().name;
+        UnityWebRequest www = UnityWebRequest.Get(URL);
+        yield return www.SendWebRequest();
+        if (www.error != null) {
+        }
+        else {
+            byte[] result = www.downloadHandler.data;
+            topGlobalTime =  System.Text.Encoding.Default.GetString(result);
+        }
     }
 
 
