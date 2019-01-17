@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4202565, g: 0.59018844, b: 0.68334246, a: 1}
+  m_IndirectSpecularColor: {r: 0.44076622, g: 0.61786747, b: 0.71495485, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2276,6 +2276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c032074c5fa74b6499618bd59e3a3b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  User:
+    userId: 0
+    username: 
+    firstName: 
+    lastName: 
+    token: 
+    scores: []
 --- !u!4 &1561738489
 Transform:
   m_ObjectHideFlags: 0
@@ -2821,8 +2828,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 748f08672edece84883019af4b2f8437, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

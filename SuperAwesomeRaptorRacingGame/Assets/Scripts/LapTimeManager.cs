@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 using UnityEngine.Networking;
 using System.Collections;
+using System.Linq;
 
 public class LapTimeManager : MonoBehaviour {
 
@@ -62,7 +63,7 @@ public class LapTimeManager : MonoBehaviour {
         // top score is always first returned (ordered by backend)
         if (UserManager.Instance.User.scores.Count > 0)
         {
-            return UserManager.Instance.User.scores[0].time;
+            return UserManager.Instance.User.scores.Where(sc => sc.trackName == SceneManager.GetActiveScene().name).First().time;
         }
         return "00:00:00";
         

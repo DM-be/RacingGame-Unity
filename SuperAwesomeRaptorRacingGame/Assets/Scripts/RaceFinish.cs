@@ -43,7 +43,6 @@ public class RaceFinish : MonoBehaviour
     IEnumerator ToMenu()
     {
         yield return new WaitForSeconds(2);
-        //TODO correct screen
         SceneManager.LoadScene(4);
     }
 

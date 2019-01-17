@@ -22,19 +22,22 @@ public class LapComplete : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider other)
     {
-        LapsDone += 1;
-        UserManager.Instance.SendLapTime(LapTimeManager.Instance.GetStopWatchFormattedTime());
-        LapTimeManager.Instance.AddLapToUserScores();
-        LapTimeManager.Instance.ResetStopwatch();
-
-        if (LapsDone <= AmountOfLaps)
+        if (other.tag == "PlayerCar")
         {
-            LapCounter.GetComponent<Text>().text = "" + LapsDone;
-        }
+            LapsDone += 1;
+            UserManager.Instance.SendLapTime(LapTimeManager.Instance.GetStopWatchFormattedTime());
+            LapTimeManager.Instance.AddLapToUserScores();
+            LapTimeManager.Instance.ResetStopwatch();
 
-        HalfLapTrig.SetActive(true);
-        LapCompleteTrig.SetActive(false);
+            if (LapsDone <= AmountOfLaps)
+            {
+                LapCounter.GetComponent<Text>().text = "" + LapsDone;
+            }
+
+            HalfLapTrig.SetActive(true);
+            LapCompleteTrig.SetActive(false);
+        }
     }
 }
