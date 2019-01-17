@@ -6,6 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/SplashScreen.unity
+    guid: 020fc672d99f735469d23f7ef9078de8
+  - enabled: 1
+    path: Assets/Scenes/EntryMenu.unity
+    guid: 2eeb1698f059d1e4bae062d363338bf8
+  - enabled: 1
+    path: Assets/Scenes/LoginScene.unity
+    guid: 1ab7e7353796cb347bfa9ee38320dbf2
+  - enabled: 1
+    path: Assets/Scenes/RegisterScene.unity
+    guid: d9cd3b3e943a1fd4294c799d7de17154
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 93d2c699871bb0c44aa5f854a63bf259
+  - enabled: 1
+    path: Assets/Scenes/TrackSelect.unity
+    guid: 3bbf40ff14af7ef479c7655dcf7d3853
+  - enabled: 1
+    path: Assets/Scenes/RaceScene01.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/RaceScene02.unity
+    guid: f954e03a52c54e84ea27fc3c2c668d3a
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: eda34faf096ee734e89df2b52de02572
   m_configObjects: {}
