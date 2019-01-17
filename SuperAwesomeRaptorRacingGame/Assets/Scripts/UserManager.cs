@@ -63,8 +63,8 @@ public class UserManager : MonoBehaviour {
             trackName = SceneManager.GetActiveScene().name,
             time = Time,
         };
+
         string jsonString = JsonUtility.ToJson(scoreDto);
-        Debug.Log(jsonString);
         UnityWebRequest www = UnityWebRequest.Put(scorePostURL, jsonString);
         www.method = "POST";
 
