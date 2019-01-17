@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43267334, g: 0.4869992, b: 0.53019404, a: 1}
+  m_IndirectSpecularColor: {r: 0.45944476, g: 0.5171619, b: 0.56233895, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6379,6 +6379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeSelection: 0
   AICar: {fileID: 404697064}
+  AmountLaps: {fileID: 819544253}
+  Place: {fileID: 273902760}
 --- !u!1 &1444931498
 GameObject:
   m_ObjectHideFlags: 0

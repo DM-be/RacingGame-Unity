@@ -4930,6 +4930,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModeSelection: 0
   AICar: {fileID: 404697064}
+  AmountLaps: {fileID: 819544253}
+  Place: {fileID: 273902760}
 --- !u!1 &1444931498
 GameObject:
   m_ObjectHideFlags: 0

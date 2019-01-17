@@ -9,6 +9,8 @@ public class ModeTime : MonoBehaviour
     public int ModeSelection;
     public GameObject AICar;
     public static bool isTimeMode = false;
+    public GameObject AmountLaps;
+    public GameObject Place;
 
 	// Use this for initialization
 	void Start ()
@@ -20,6 +22,8 @@ public class ModeTime : MonoBehaviour
             case 2:
                 isTimeMode = true;
                 AICar.SetActive(false);
+                AmountLaps.SetActive(false);
+                Place.SetActive(false);
                 break;
 	    }
 	}
