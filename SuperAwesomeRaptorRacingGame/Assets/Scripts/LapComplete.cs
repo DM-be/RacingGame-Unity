@@ -16,7 +16,6 @@ public class LapComplete : MonoBehaviour {
 
     void Update()
     {
-        Debug.unityLogger.Log(LapsDone);
         if (LapsDone >= AmountOfLaps)
         {
             RaceFinish.SetActive(true);
@@ -29,9 +28,11 @@ public class LapComplete : MonoBehaviour {
         UserManager.Instance.SendLapTime(LapTimeManager.Instance.GetStopWatchFormattedTime());
         LapTimeManager.Instance.AddLapToUserScores();
         LapTimeManager.Instance.ResetStopwatch();
-   
 
-        LapCounter.GetComponent<Text>().text = "" + LapsDone;
+        if (LapsDone <= AmountOfLaps)
+        {
+            LapCounter.GetComponent<Text>().text = "" + LapsDone;
+        }
 
         HalfLapTrig.SetActive(true);
         LapCompleteTrig.SetActive(false);
