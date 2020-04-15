@@ -7,4 +7,4 @@ A Unity racing game was made for the foundation .NET course. The game features a
 ## Technical
 
 In this Unity project I built the login and registering screen, the score system (keeping track of time and sending it on each finished race) and other necessary scripts.
-In other words I fully integrated it with the [backendproject](https://github.com/DM-be/RacingGame-backend). 
+In other words I fully integrated it with the [backend project](https://github.com/DM-be/RacingGame-backend). 
